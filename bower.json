@@ -1,0 +1,21 @@
+{
+  "name": "switch-options",
+  "version": "0.0.0",
+  "authors": [
+    "fernandosouza <nandosouzafilho@gmail.com>"
+  ],
+  "description": "A simples multiple options switch demo",
+  "main": "index.html",
+  "keywords": [
+    "demo",
+    "angularjs"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

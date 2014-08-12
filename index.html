@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Multiple options switch directive demo</title>
+	<link rel="stylesheet" href="">
+	<script src="bower_components/angular/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="application.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body ng-controller="multipleOptionsController">
+	<multiple-options-field field="field"></multiple-options-field>
+	<label for="">Switch the field type here:</label>
+	<select name="" id="" ng-model="field.type">
+		<option value="1">1</option>
+		<option value="2">2</option>
+	</select>
+</body>
+</html>

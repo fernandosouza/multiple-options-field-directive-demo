@@ -1,0 +1,17 @@
+
+
+<div ng-switch on="field.type">
+	{{ field.lable }}
+
+	<div ng-switch-when="1">
+		<label ng-repeat="option in field.options">
+			<input type="radio" value="{{option.value}}" ng-model="option.checked" name="field.name" ng-checked="{{ option.checked }}" /> {{option.text}}
+		</label>
+	</div>
+
+	<div ng-switch-when="2">
+		<select name="field.name">
+			<option value="{{option.value}}" ng-repeat="option in field.options" ng-selected="{{ option.checked }}"> {{option.text}} </option>
+		</select>
+	</div>
+</div>
