@@ -1,17 +1,28 @@
+<div class="field" ng-repeat="field in fields">
+	<!-- Input do tipo multipla escolha -->
+	<div class="field" ng-switch on="field.type" ng-show="{{ field.type == '2' }}">
+		{{ field.label }}
 
+		<div ng-switch-when="1">
+			<label ng-repeat="option in field.options">
+				<input type="radio" value="{{option.value}}" name="field.name" ng-model="field.selected" ng-checked="{{ field.selected == option.value }}" />
+				{{option.text}}
+			</label>
+		</div>
 
-<div ng-switch on="field.type">
-	{{ field.lable }}
+		<div ng-switch-when="2">
+			<select ng-model="field.selected" name="field.name">
+				<option ng-repeat="option in field.options" value="{{option.value}}" ng-selected="{{ field.selected == option.value }}">
+					{{option.text}}
+				</option>
+			</select>
+		</div>
 
-	<div ng-switch-when="1">
-		<label ng-repeat="option in field.options">
-			<input type="radio" value="{{option.value}}" ng-model="option.checked" name="field.name" ng-checked="{{ option.checked }}" /> {{option.text}}
-		</label>
-	</div>
-
-	<div ng-switch-when="2">
-		<select name="field.name">
-			<option value="{{option.value}}" ng-repeat="option in field.options" ng-selected="{{ option.checked }}"> {{option.text}} </option>
+		<label for="">Switch the field type here:</label>
+		<select name="" id="" ng-model="field.type">
+			<option value="1">1</option>
+			<option value="2">2</option>
 		</select>
 	</div>
+	<!-- Input do tipo multipla escolha -->
 </div>
