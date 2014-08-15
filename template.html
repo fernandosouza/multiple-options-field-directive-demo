@@ -4,13 +4,13 @@
 
 		<div ng-switch-when="1">
 			<label ng-repeat="option in field.options">
-				<input type="radio" value="{{option.value}}" name="{{ field.name }}" ng-required="{{ field.required }}" ng-model="field.selected" ng-checked="{{ field.selected == option.value }}" />
-				{{option.text}}
+				<input type="radio" ng-value="option" name="{{ field.name }}" ng-required="{{ field.required }}" ng-model="field.selected" ng-checked="option.selected" />
+				{{ option.text }}
 			</label>
 		</div>
 
 		<div ng-switch-when="2">
-			<select ng-model="field.selected" name="{{ field.name }}" ng-required="{{ field.required }}" 
+			<select ng-model="field.selected" name="{{ field.name }}" ng-value="{{ option.selected ? option : '' }}" ng-required="{{ field.required }}" 
 				ng-options="option.text for option in field.options">
 				<option value="">{{ field.emptyString || 'Selecione uma das opções' }}</option>
 			</select>

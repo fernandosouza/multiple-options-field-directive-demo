@@ -6,21 +6,24 @@ angular.module('app', [])
                 label: 'Multiple Options Field',
                 type: '2',
                 name: 'multiOptions' ,
-                selected: '0',
+                selected: '',
                 required: true,
                 emptyString: 'Selecione uma opção',
                 options: [
                     {
                         'text': 'option 1',
-                        'value': '1'
+                        'value': '1',
+                        'selected': false
                     },
                     {
                         'text': 'option 2',
-                        'value': '2'
+                        'value': '2',
+                        'selected': false
                     },
                     {
                         'text': 'option 3',
-                        'value': '3'
+                        'value': '3',
+                        'selected': false
                     }
                 ]
             }
@@ -30,12 +33,29 @@ angular.module('app', [])
     }])
 
     .directive('multipleOptionsField', function($compile){
-	   return {
-		  restrict: "E",
+
+        function controller($scope){
+            var fields = $scope.fields;
+
+            [].forEach.call(fields, function(field){
+                var options = field.options;
+
+                [].forEach.call(options, function(option){
+                    if(option.selected){
+                        field.selected = option;
+                        return false;
+                    }
+                });
+            });
+        };
+
+        return {
+            restrict: "E",
     		templateUrl: 'template.html',
             replace: false,
             scope: {
                 fields:'='
-            }
+            },
+            controller: controller
     	}
     });
