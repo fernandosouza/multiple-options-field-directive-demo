@@ -3,10 +3,10 @@ angular.module('app', [])
     .controller('multipleOptionsController', ['$scope', function($scope){
     	$scope.fields = [
             {
-                label: 'Multiple Options Field',
+                label: 'Multiple Options Field 1',
                 type: '2',
-                name: 'multiOptions' ,
-                selected: '',
+                name: 'multiOptions',
+                selected: null,
                 required: true,
                 emptyString: 'Selecione uma opção',
                 options: [
@@ -18,7 +18,32 @@ angular.module('app', [])
                     {
                         'text': 'option 2',
                         'value': '2',
+                        'selected': true
+                    },
+                    {
+                        'text': 'option 3',
+                        'value': '3',
                         'selected': false
+                    }
+                ]
+            },
+            {
+                label: 'Multiple Options Field 2',
+                type: '1',
+                name: 'multiOptions2',
+                selected: null,
+                required: true,
+                emptyString: 'Selecione uma opção',
+                options: [
+                    {
+                        'text': 'option 1',
+                        'value': '1',
+                        'selected': false
+                    },
+                    {
+                        'text': 'option 2',
+                        'value': '2',
+                        'selected': true
                     },
                     {
                         'text': 'option 3',
@@ -52,7 +77,7 @@ angular.module('app', [])
         return {
             restrict: "E",
     		templateUrl: 'template.html',
-            replace: false,
+            replace: true,
             scope: {
                 fields:'='
             },
