@@ -6,7 +6,9 @@ angular.module('app', [])
                 label: 'Multiple Options Field',
                 type: '2',
                 name: 'multiOptions' ,
-                selected: '2',
+                selected: '0',
+                required: true,
+                emptyString: 'Selecione uma opção',
                 options: [
                     {
                         'text': 'option 1',

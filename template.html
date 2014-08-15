@@ -1,20 +1,18 @@
 <div class="field" ng-repeat="field in fields">
-	<!-- Input do tipo multipla escolha -->
 	<div class="field" ng-switch on="field.type" ng-show="{{ field.type == '2' }}">
 		{{ field.label }}
 
 		<div ng-switch-when="1">
 			<label ng-repeat="option in field.options">
-				<input type="radio" value="{{option.value}}" name="field.name" ng-model="field.selected" ng-checked="{{ field.selected == option.value }}" />
+				<input type="radio" value="{{option.value}}" name="{{ field.name }}" ng-required="{{ field.required }}" ng-model="field.selected" ng-checked="{{ field.selected == option.value }}" />
 				{{option.text}}
 			</label>
 		</div>
 
 		<div ng-switch-when="2">
-			<select ng-model="field.selected" name="field.name">
-				<option ng-repeat="option in field.options" value="{{option.value}}" ng-selected="{{ field.selected == option.value }}">
-					{{option.text}}
-				</option>
+			<select ng-model="field.selected" name="{{ field.name }}" ng-required="{{ field.required }}" 
+				ng-options="option.text for option in field.options">
+				<option value="">{{ field.emptyString || 'Selecione uma das opções' }}</option>
 			</select>
 		</div>
 
@@ -24,5 +22,4 @@
 			<option value="2">2</option>
 		</select>
 	</div>
-	<!-- Input do tipo multipla escolha -->
 </div>
