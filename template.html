@@ -1,23 +1,29 @@
-<div class="field" ng-repeat="field in fields" ng-switch on="field.type">
-	{{ field.label }}
+<div class="form-group" ng-repeat="field in fields" ng-switch on="field.type">
+	<label for="">
+		{{ field.label }}
+	</label>
 
 	<div ng-switch-when="1">
-		<label ng-repeat="option in field.options">
-			<input type="radio" ng-value="option" name="{{ field.name }}" ng-required="{{ field.required }}" ng-model="field.selected" ng-checked="option.selected" />
-			{{ option.text }}
-		</label>
+		<div class="radio-inline" ng-repeat="option in field.options">
+			<label>
+				<input type="radio" ng-value="option" name="{{ field.name }}" ng-required="{{ field.required }}" ng-model="field.selected" ng-checked="option.selected" />
+				{{ option.text }}
+			</label>
+		</div>
 	</div>
 
 	<div ng-switch-when="2">
-		<select ng-model="field.selected" name="{{ field.name }}" ng-value="{{ option.selected ? option : '' }}" ng-required="{{ field.required }}" 
+		<select class="form-control" ng-model="field.selected" name="{{ field.name }}" ng-value="{{ option.selected ? option : '' }}" ng-required="{{ field.required }}" 
 			ng-options="option.text for option in field.options">
 			<option value="">{{ field.emptyString || 'Selecione uma das opções' }}</option>
 		</select>
 	</div>
 
-	<label for="">Switch the field type here:</label>
-	<select name="" id="" ng-model="field.type">
-		<option value="1">1</option>
-		<option value="2">2</option>
+	<label>
+		View option above as:
+	</label>
+	<select class="form-control" name="" id="" ng-model="field.type">
+		<option value="1">Radio</option>
+		<option value="2">Select</option>
 	</select>
 </div>

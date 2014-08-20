@@ -4,18 +4,20 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Multiple options switch directive demo</title>
-	<link rel="stylesheet" href="">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
 	<script src="bower_components/angular/angular.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="application.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body ng-controller="multipleOptionsController">
-    
-    <form action="./">
-    	<multiple-options-field fields="fields"></multiple-options-field>
-
-        <button>Enviar</button>
-
-    </form>
-
+    <div class="container">
+    	<h1>Multiple options switch directive demo</h1>
+    	
+    	<p>A simple AngularJS directive to show how you can switch options visualization</p>
+    	
+    	<form action="./" role="form">
+	    	<multiple-options-field fields="fields"></multiple-options-field>
+	    </form>
+    </div>
 </body>
 </html>
