@@ -26,31 +26,6 @@ angular.module('app', [])
                         'selected': false
                     }
                 ]
-            },
-            {
-                label: 'Multiple Options Field 2',
-                type: '1',
-                name: 'multiOptions2',
-                selected: null,
-                required: true,
-                emptyString: 'Selecione uma opção',
-                options: [
-                    {
-                        'text': 'option 1',
-                        'value': '1',
-                        'selected': false
-                    },
-                    {
-                        'text': 'option 2',
-                        'value': '2',
-                        'selected': true
-                    },
-                    {
-                        'text': 'option 3',
-                        'value': '3',
-                        'selected': false
-                    }
-                ]
             }
         ];
 
